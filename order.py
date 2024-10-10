@@ -1,4 +1,4 @@
-from menu import MenuItem
+from menu import MenuItem, Menu
 
 
 
@@ -54,17 +54,17 @@ class Order:
     print("{:<43}{:>8}".format("TOTAL", globalTotal))
 
 
+if __name__ == "__main__":
+  # Create some fake menu items
+  burger = MenuItem("Burger", 5.99)
+  fries = MenuItem("Fries", 2.99)
+  soda = MenuItem("Soda", 1.49)
 
-# Create some fake menu items
-burger = MenuItem("Burger", 5.99)
-fries = MenuItem("Fries", 2.99)
-soda = MenuItem("Soda", 1.49)
+  # Create an order and add items to it
+  order = Order()
+  order.add(burger, 2)
+  order.add(fries, 1)
+  order.add(soda, 3)
 
-# Create an order and add items to it
-order = Order()
-order.add(burger, 2)
-order.add(fries, 1)
-order.add(soda, 3)
-
-# Print the order
-order.print()
+  # Print the order
+  order.print()
