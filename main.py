@@ -4,11 +4,11 @@ from menu import MenuItem, Menu
 import sys
 import csv
 
-data = sys.argv[1]
-
-if data == None:
+if len(sys.argv) != 2:
   print("USAGE: main.py menu.tsv")
   exit()
+
+data = sys.argv[1]
 
 orders = []
 
@@ -22,6 +22,7 @@ menu.print()
 order = Order()
 dict = {}
 print("What would you like to order?")
+print("")
 for input in sys.stdin:
   input = input.strip()
   if input == '':
