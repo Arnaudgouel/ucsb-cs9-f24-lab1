@@ -28,5 +28,4 @@ class Menu:
       name = "  {:<24}".format(item.name)
       print(name, end='  ')
       print(price)
-    print("")
 

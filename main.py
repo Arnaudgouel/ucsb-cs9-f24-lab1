@@ -21,8 +21,8 @@ with open(data, newline='') as csvfile:
 menu.print()
 order = Order()
 dict = {}
+print()
 print("What would you like to order?")
-print("")
 for input in sys.stdin:
   input = input.strip()
   if input == '':
@@ -39,4 +39,5 @@ for input in sys.stdin:
 if dict == {}:
   exit()
 else:
+  print()
   order.print()
