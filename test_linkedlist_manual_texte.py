@@ -24,4 +24,15 @@ linked_list_text.print(reverse=True)
 # Afficher le nombre d'éléments dans la liste chaînée textuelle
 print("Nombre d'éléments dans la liste chaînée textuelle:", linked_list_text.count())
 
-print(linked_list_text.head())
+
+linked_list_text.remove(1)
+print("Liste chaînée après suppression de 'banana':")
+linked_list_text.print()
+
+linked_list_text2 = LinkedList()
+linked_list_text2.add("Now you see it...")
+linked_list_text2.print()
+linked_list_text2.remove(0)
+linked_list_text2.print()
+
+

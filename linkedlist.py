@@ -62,9 +62,17 @@ class LinkedList:
   
   def remove(self, index):
     value = self.list[index]
+    if len(self.list) <= 2 and index == 0:
+      previousNode = None
+    else:
+      previousNode = self.list[index-1]
+    if index+1 >= len(self.list):
+      next = None
+    else:
+      next = self.list[index+1]
+    if previousNode is not None:
+      previousNode.next = next
     self.list.pop(index)
-    previousNode = self.list[index-1]
-    previousNode.next = self.list[index+1]
     return value
   
   def remove_all(self, value):
