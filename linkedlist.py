@@ -25,6 +25,8 @@ class LinkedList:
         self.tete = node
       else:
         while current.next is not None:
+          # print("current.next not None")
+          index += 1
           if current.next.value > value:
             next = current.next
             node = ListNode(value, next)
@@ -32,11 +34,12 @@ class LinkedList:
             isPlaced = True
             break
           current = current.next
-          index += 1
         if isPlaced is not True:
+          # print("isPlaced false")
           current.next = ListNode(value)
           node = current.next
           index += 1
+    # print("index", index)
     self.list.insert(index, node)
 
   def count(self):
