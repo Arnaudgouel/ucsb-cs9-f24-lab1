@@ -1,4 +1,4 @@
-
+import copy
 class ListNode:
   def __init__(self, value, next = None):
     self.value = value
@@ -61,8 +61,18 @@ class LinkedList:
     print("]")
   
   def remove(self, index):
-    return
+    value = self.list[index]
+    self.list.pop(index)
+    previousNode = self.list[index-1]
+    previousNode.next = self.list[index+1]
+    print(value)
   
   def remove_all(self, value):
-    return
+    counter = 0
+    listCopy = copy.copy(self.list)
+    for i in range(len(listCopy)):
+      if self.list[i].value == value:
+        self.remove(i)
+        counter +=1
+    print(counter)
   
