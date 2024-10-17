@@ -65,7 +65,7 @@ class LinkedList:
     self.list.pop(index)
     previousNode = self.list[index-1]
     previousNode.next = self.list[index+1]
-    print(value)
+    return value
   
   def remove_all(self, value):
     counter = 0
@@ -74,5 +74,5 @@ class LinkedList:
       if self.list[i].value == value:
         self.remove(i)
         counter +=1
-    print(counter)
+    return counter
   
