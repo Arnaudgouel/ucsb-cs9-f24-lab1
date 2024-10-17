@@ -1,7 +1,10 @@
-from linkedlist import LinkedList
+from linkedlist import LinkedList, ListNode
 
 # Créer une instance de LinkedList
 linked_list = LinkedList()
+
+node = ListNode(15)
+print(node)
 
 # Ajouter des éléments à la liste chaînée
 linked_list.add(10)
@@ -27,3 +30,5 @@ linked_list.print(reverse=True)
 
 # Afficher le nombre d'éléments dans la liste chaînée
 print("Nombre d'éléments dans la liste chaînée:", linked_list.count())
+
+print(linked_list.head())

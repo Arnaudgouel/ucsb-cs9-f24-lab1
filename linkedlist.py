@@ -3,23 +3,26 @@ class ListNode:
   def __init__(self, value, next = None):
     self.value = value
     self.next = next
+  
+  def __str__(self):
+    return str(self.value)
     
 class LinkedList:
   def __init__(self):
     self.list = []
-    self.head = None
+    self.tete = None
 
   def add(self, value):
     index = 0
-    if self.head is None:
-      self.head = ListNode(value)
-      node = self.head
+    if self.tete is None:
+      self.tete = ListNode(value)
+      node = self.tete
     else:
-      current = self.head
+      current = self.tete
       isPlaced = False
       if value < current.value:
-        node = ListNode(value, self.head)
-        self.head = node
+        node = ListNode(value, self.tete)
+        self.tete = node
       else:
         while current.next is not None:
           if current.next.value > value:
@@ -43,7 +46,7 @@ class LinkedList:
     return self.list[index]
   
   def head(self):
-    return self.head
+    return self.tete
 
   def print(self, reverse = False):
     list = self.list if reverse is False else self.list[::-1] 
