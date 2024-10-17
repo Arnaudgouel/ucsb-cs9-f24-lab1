@@ -73,12 +73,15 @@ class LinkedList:
     if previousNode is not None:
       previousNode.next = next
     self.list.pop(index)
+    if len(self.list) > 0:
+      self.tete = self.list[0]
+    else:
+      self.tete = self.list
     return value
   
   def remove_all(self, value):
     counter = 0
-    listCopy = copy.copy(self.list)
-    for i in range(len(listCopy)):
+    for i in range(len(self.list)-1, -1, -1):
       if self.list[i].value == value:
         self.remove(i)
         counter +=1
