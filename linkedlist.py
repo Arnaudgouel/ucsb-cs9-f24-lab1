@@ -76,7 +76,7 @@ class LinkedList:
     if len(self.list) > 0:
       self.tete = self.list[0]
     else:
-      self.tete = self.list
+      self.tete = None
     return value
   
   def remove_all(self, value):
