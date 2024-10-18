@@ -88,8 +88,10 @@ class LinkedList:
       else:
         counter +=1
         indexesToRemove.append(i)
+    offset = 0
     for i in indexesToRemove:
-      self.remove(i)
+      self.remove(i-offset)
+      offset += 1
     self.list = newList
     return counter
   
