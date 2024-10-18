@@ -82,7 +82,7 @@ class LinkedList:
     counter = 0
     newList = []
     indexesToRemove = []
-    for i in range(len(self.list)-1):
+    for i in range(len(self.list)):
       if self.list[i].value != value:
         newList.append(self.list[i])
       else:
