@@ -9,89 +9,96 @@ class ListNode:
     
 class LinkedList:
   def __init__(self):
-    self.list = []
     self.tete = None
 
   def add(self, value):
-    index = 0
-    if self.tete is None:
-      self.tete = ListNode(value)
-      node = self.tete
+    newNode = ListNode(value)
+    if self.tete is None or self.tete.value >= value:
+      newNode.next = self.tete
+      self.tete = newNode
     else:
       current = self.tete
-      isPlaced = False
-      if value < current.value:
-        node = ListNode(value, self.tete)
-        self.tete = node
-      else:
-        while current.next is not None:
-          # print("current.next not None")
-          index += 1
-          if current.next.value > value:
-            next = current.next
-            node = ListNode(value, next)
-            current.next = node
-            isPlaced = True
-            break
-          current = current.next
-        if isPlaced is not True:
-          # print("isPlaced false")
-          current.next = ListNode(value)
-          node = current.next
-          index += 1
-    # print("index", index)
-    self.list.insert(index, node)
+      while current.next is not None and current.next.value < value:
+        current = current.next
+      newNode.next = current.next
+      current.next = newNode
 
   def count(self):
-    return len(self.list)
+    count = 0
+    current = self.tete
+    while current is not None:
+      count +=1
+      current = current.next
+    return count
   
   def get(self, index):
-    return self.list[index]
+    current = self.tete
+    for _ in range(index):
+      if current is None:
+        raise IndexError("Index out of range")
+      current = current.next
+    if current is None:
+      raise IndexError("Index out of range")
+    return current.value
   
   def head(self):
-    if len(self.list) > 0:
-      return self.list[0]
-    else:
-      return None
+    return self.tete
 
   def print(self, reverse = False):
-    list = self.list if reverse is False else self.list[::-1] 
-    print("[", end='')
-    for i in range(len(list)):
-      if i > 0:
-        print(", ", end='')
-      print(list[i].value, end='')
-    print("]")
+    if reverse:
+      print('[', end='')
+      self.reversePrint(self.tete)
+    else:
+      current = self.tete
+      print("[", end='')
+      while current is not None:
+        print(current.value, end='')
+        if current.next is not None:
+          print(", ", end='')
+        current = current.next
+      print("]")
+
+  def reversePrint(self, node):
+    if node is not None:
+      self.reversePrint(node.next)
+      print(node.value, end='')
+      if node != self.tete:
+        print(", ",  end='')
+    if node == self.tete:
+      print("]")
+
   
   def remove(self, index):
-    value = self.list[index]
-    if len(self.list) <= 2 and (index == 0 or index == -2):
-      previousNode = None
+    current = self.tete
+    previous = None
+    for _ in range(index):
+      previous = current
+      current = current.next
+    if previous is None and current is None:
+      raise IndexError("Index out of range")
+    if previous is not None:
+      previous.next = current.next
     else:
-      previousNode = self.list[index-1]
-    if index+1 >= len(self.list):
-      next = None
+      self.tete = current.next
+    return current.value
+  
+  def removeValue(self, value):
+    current = self.tete
+    previous = None
+    while current is not None and current.value != value:
+      previous = current
+      current = current.next
+    if current is None:
+      return False
+    if previous is None:
+      self.tete = current.next
     else:
-      next = self.list[index+1]
-    if previousNode is not None:
-      previousNode.next = next
-    self.list.pop(index)
-    return value
+      previous.next = current.next
+    return True
   
   def remove_all(self, value):
-    counter = 0
-    newList = []
-    indexesToRemove = []
-    for i in range(len(self.list)):
-      if self.list[i].value != value:
-        newList.append(self.list[i])
-      else:
-        counter +=1
-        indexesToRemove.append(i)
-    offset = 0
-    for i in indexesToRemove:
-      self.remove(i-offset)
-      offset += 1
-    self.list = newList
-    return counter
+    count = 0
+    while self.removeValue(value):
+      count += 1
+    return count
   
