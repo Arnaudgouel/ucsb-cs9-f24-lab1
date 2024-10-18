@@ -33,6 +33,9 @@ print("Nombre d'éléments dans la liste chaînée textuelle:", linked_list_text
 linked_list_text.remove(1)
 print("Liste chaînée après suppression de 'banana':")
 linked_list_text.print()
+linked_list_text.remove(-1)
+print("Liste chaînée après suppression de 'fig':")
+linked_list_text.print()
 
 linked_list_text2 = LinkedList()
 linked_list_text2.add("Now you see it...")
