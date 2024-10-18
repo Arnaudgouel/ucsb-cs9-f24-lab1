@@ -17,6 +17,11 @@ linked_list_text.print()
 linked_list_text.add("elderberry")
 linked_list_text.print()
 
+print(linked_list_text.get(-1))
+print(linked_list_text.get(-2))
+print(linked_list_text.get(-3))
+print(linked_list_text.get(-6))
+
 # Afficher la liste chaînée textuelle en ordre inverse
 print("Liste chaînée textuelle en ordre inverse:")
 linked_list_text.print(reverse=True)

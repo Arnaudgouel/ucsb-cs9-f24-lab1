@@ -33,6 +33,14 @@ class LinkedList:
   
   def get(self, index):
     current = self.tete
+    if index < 0:
+      length = self.count()
+      if index*(-1) > length:
+        raise IndexError("Index out of range")
+      for _ in range(length-(index*(-1))):
+        if current is None:
+          raise IndexError("Index out of range")
+        current = current.next
     for _ in range(index):
       if current is None:
         raise IndexError("Index out of range")
