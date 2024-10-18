@@ -79,8 +79,10 @@ class LinkedList:
   def remove(self, index):
     current = self.tete
     previous = None
+    length = self.count()
+    if index >= length:
+      raise IndexError("Index out of range")
     if index < 0:
-      length = self.count()
       if index*(-1) > length:
         raise IndexError("Index out of range")
       for _ in range(length-(index*(-1))):
@@ -95,7 +97,7 @@ class LinkedList:
       current = current.next
     if previous is None and current is None:
       raise IndexError("Index out of range")
-    if previous is not None and current is not None:
+    if previous is not None:
       previous.next = current.next
     else:
       self.tete = current.next

@@ -107,7 +107,7 @@ linked_list_text2.remove(-2)
 linked_list_text2.remove(-2)
 linked_list_text2.remove(-2)
 linked_list_text2.remove(-2)
-linked_list_text2.remove(-1)
+linked_list_text2.remove(1)
 linked_list_text2.print()
 
 linked_list_text2 = LinkedList()
