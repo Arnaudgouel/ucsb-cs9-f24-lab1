@@ -65,7 +65,7 @@ class LinkedList:
   
   def remove(self, index):
     value = self.list[index]
-    if len(self.list) <= 2 and index == 0:
+    if len(self.list) <= 2 and (index == 0 or index == -2):
       previousNode = None
     else:
       previousNode = self.list[index-1]
