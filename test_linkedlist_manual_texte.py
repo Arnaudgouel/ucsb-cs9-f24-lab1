@@ -43,11 +43,11 @@ linked_list_text2.add("Now you see it...")
 linked_list_text2.add("Now you see it...")
 linked_list_text2.add("Now you see ...")
 linked_list_text2.add("Now you see ...")
+linked_list_text2.add("Now you see ...")
 linked_list_text2.add("Now you see it...")
 linked_list_text2.print()
 print(linked_list_text2.remove_all("Now you see ..."))
 linked_list_text2.print()
-print("head")
-linked_list_text2.head()
+print(linked_list_text2.head())
 
 

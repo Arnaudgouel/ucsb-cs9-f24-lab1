@@ -49,7 +49,10 @@ class LinkedList:
     return self.list[index]
   
   def head(self):
-    return self.tete
+    if len(self.list) > 0:
+      return self.list[0]
+    else:
+      return None
 
   def print(self, reverse = False):
     list = self.list if reverse is False else self.list[::-1] 
@@ -73,17 +76,20 @@ class LinkedList:
     if previousNode is not None:
       previousNode.next = next
     self.list.pop(index)
-    if len(self.list) > 0:
-      self.tete = self.list[0]
-    else:
-      self.tete = None
     return value
   
   def remove_all(self, value):
     counter = 0
-    for i in range(len(self.list)-1, -1, -1):
-      if self.list[i].value == value:
-        self.remove(i)
+    newList = []
+    indexesToRemove = []
+    for i in range(len(self.list)-1):
+      if self.list[i].value != value:
+        newList.append(self.list[i])
+      else:
         counter +=1
+        indexesToRemove.append(i)
+    for i in indexesToRemove:
+      self.remove(i)
+    self.list = newList
     return counter
   
