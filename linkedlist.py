@@ -95,7 +95,7 @@ class LinkedList:
       current = current.next
     if previous is None and current is None:
       raise IndexError("Index out of range")
-    if previous is not None:
+    if previous is not None and current is not None:
       previous.next = current.next
     else:
       self.tete = current.next
