@@ -2,7 +2,7 @@ from collections import deque
 import re
 
 def tokenize(expression):
-    """Convert a string expression into a deque of tokens (numbers and operators)."""
+    # Convert a string expression into a deque of tokens (numbers and operators.
     if not expression.strip():
         return deque()
     
@@ -30,7 +30,7 @@ def tokenize(expression):
     return result
 
 def apply_operator(op, operands):
-    """Apply the given operator to the operands."""
+    # Apply the given operator to the operands.
     if op == '~':
         if len(operands) < 1:
             raise RuntimeError("Not enough operands.")
@@ -62,7 +62,7 @@ def apply_operator(op, operands):
         raise RuntimeError(f'Invalid operator: "{op}"')
 
 def prefix(tokens):
-    """Evaluate a prefix expression."""
+    # Evaluate a prefix expression.
     if not tokens:
         raise RuntimeError("No input.")
     
@@ -94,7 +94,7 @@ def prefix(tokens):
     return result
 
 def postfix(tokens):
-    """Evaluate a postfix expression."""
+    # Evaluate a postfix expression.
     if not tokens:
         raise RuntimeError("No input.")
         
